@@ -11,7 +11,7 @@
 // http://www.karamasoft.com/UltimateSpell/Dictionary/English%20(United%20States)/en-US.zip
 $dictfile = 'dictionary/en-US/en-US.dic';
 
-$num_docs = 1000;
+$num_docs = 100;
 
 $output_folder = 'testdocs';
 
@@ -103,9 +103,9 @@ function print_doc_as_xml($doc, $path) {
 	$str .= "		<field name='categoryid'>testdoc</field>\n";
 	$str .= "		<field name='categoryname'>Test Documents</field>\n";
 	$str .= "		<field name='url'>http://example.com/testdocs/".$id."</field>\n";
-	$str .= "		<field name='title'>".$doc['title']."</field>\n";
-	$str .= "		<field name='description'>".$doc['description']."</field>\n";
-	$str .= "		<field name='body'>".$doc['body']."</field>\n";
+	$str .= "		<field name='title'>".utf8_encode($doc['title'])."</field>\n";
+	$str .= "		<field name='description'>".utf8_encode($doc['description'])."</field>\n";
+	$str .= "		<field name='body'>".utf8_encode($doc['body'])."</field>\n";
 	$str .= "	</doc>\n";
 	$str .= "</add>\n";
 	$fp = fopen($path, 'w');
